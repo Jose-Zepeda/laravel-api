@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 // Rutas para el controlador de usuarios, asignando nombres personalizados
 
-Route::prefix('usuarios')->group(function () {
+Route::middleware('auth:sanctum')->prefix('usuarios')->group(function () {
     Route::get('/listUsers', [UsuarioController::class, 'index']);
     Route::post('/addUser', [UsuarioController::class, 'store']);
     Route::get('/getUser/{id}', [UsuarioController::class, 'show']);
