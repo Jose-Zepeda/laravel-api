@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        // Agregar tenant_id a la tabla usuarios
+        Schema::table('usuarios', function (Blueprint $table) {
+            $table->string('tenant_id')->after('id')->index();
+        });
+
+        // Agregar tenant_id a la tabla tareas
+        Schema::table('tareas', function (Blueprint $table) {
+            $table->string('tenant_id')->after('id')->index();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('usuarios', function (Blueprint $table) {
+            $table->dropColumn('tenant_id');
+        });
+
+        Schema::table('tareas', function (Blueprint $table) {
+            $table->dropColumn('tenant_id');
+        });
+    }
+};
