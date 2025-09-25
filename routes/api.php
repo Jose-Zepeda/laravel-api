@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UsuarioController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TareaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,3 +31,12 @@ Route::prefix('usuarios')->group(function () {
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+
+// Rutas para el controlador de tareas
+Route::middleware('auth:sanctum')->prefix('tareas')->group(function () {
+    Route::get('/listTareas', [TareaController::class, 'index']);
+    Route::post('/addTarea', [TareaController::class, 'store']);
+    Route::get('/getTarea/{id}', [TareaController::class, 'show']);
+    Route::put('/updateTarea/{id}', [TareaController::class, 'update']);
+    Route::delete('/deleteTarea/{id}', [TareaController::class, 'destroy']);
+});
