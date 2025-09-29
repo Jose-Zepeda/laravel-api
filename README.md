@@ -1,11 +1,40 @@
+# 🏗️ Sistema Multitenant Laravel API
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🎥 Video Explicativo del Proyecto
+
+**Ver demostración completa:** [📹 Video en Google Drive](https://drive.google.com/file/d/1U4UoGz4-kalAJe4TDvQjt4n1hHgTpezf/view?usp=sharing)
+
+> En este video se explica paso a paso la implementación del sistema multitenant, desde la configuración del backend hasta la integración con el frontend Vue.js.
+
+## 📋 Descripción del Proyecto
+
+Sistema completo multitenant desarrollado con **Laravel 10** como API backend, diseñado para que múltiples empresas puedan usar la misma aplicación manteniendo sus datos completamente separados.
+
+### 🚀 Características Principales
+
+- **🔐 Autenticación segura** con Laravel Sanctum (tokens Bearer)
+- **🏢 Sistema multitenant** automático por empresa
+- **👥 Gestión de usuarios** con roles (admin/usuario)
+- **✅ Gestión de tareas** con asignación por usuario
+- **🛡️ Middleware personalizado** para separación de datos
+- **📱 API REST** completamente funcional
+
+### 🛠️ Stack Tecnológico
+
+- **Framework:** Laravel 10
+- **Autenticación:** Laravel Sanctum
+- **Base de Datos:** MySQL
+- **Servidor:** Nginx + PHP-FPM
+- **Infraestructura:** AWS EC2 Ubuntu 22.04
+
+### 🏗️ Arquitectura Multitenant
+
+El sistema utiliza un **TenantMiddleware** que:
+1. Identifica automáticamente la empresa por dominio/subdominio
+2. Filtra todos los datos por `tenant_id`
+3. Garantiza la separación completa de información
 
 ## About Laravel
 
